@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>File Submission Form</title>
+</head>
+<body>
+	<h3>Submit the file you want to print</h3>
+	<form action="#" th:action="@{/fileSubmission/submitFile}" th:method="post" enctype="multipart/form-data">
+        <input type="file" name="file" to:accept="pdf" required/>
+        <br/><br/>
+        <select class="form-control" id="PrintersdropDownList" name="PrintersdropDownList">
+		    <option value="0">select option</option>
+		    <option th:each="option : ${Printers}" th:value="${option}" th:text="${option}"></option>
+		</select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
